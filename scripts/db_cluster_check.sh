@@ -21,7 +21,7 @@ for s in `seq 60`; do
 		else
 			echo "master." >&2
 		fi
-	elif [ $IS_MASTER -eq 1 ]; then
+	else
 		if [ ! -f $RECOVERY_CONF ]; then
 			echo "demoted to slave." >&2
 			logger -ist "db_check" "Demoted to slave."
@@ -41,9 +41,6 @@ for s in `seq 60`; do
 		else
 			echo "slave." >&2
 		fi
-	else
-		echo "unknown." >&2
-		logger -it "dn_check" "Unknown state."
 	fi
 
 	sleep 1
