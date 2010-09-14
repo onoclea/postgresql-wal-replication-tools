@@ -24,7 +24,7 @@ for s in `seq 60`; do
 	else
 		if [ ! -f $RECOVERY_CONF ]; then
 			echo "demoted to slave." >&2
-			logger -ist "db_check" "Demoted to slave."
+			logger -it "db_check" "Demoted to slave."
 
 			service postgresql status | grep "is stopped$" 1>&2 2>/dev/null
 			IS_STOPPED=$?
